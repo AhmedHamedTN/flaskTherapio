@@ -1,0 +1,1357 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<link rel="icon" type="image/png" href="../static/img/favicon.ico">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <!--<html dir="rtl" lang="ar" xml:lang="ar" xmlns="http://www.w3.org/1999/xhtml">-->
+
+	<title>Therapio</title>
+
+	<meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
+    <meta name="viewport" content="width=device-width" />
+
+        <link href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.0.4/css/bootstrap-responsive.min.css" rel="stylesheet">
+
+    <!-- Bootstrap core CSS     -->
+    <link href="../static/css/bootstrap.min.css" rel="stylesheet" />
+
+    <!-- Animation library for notifications   -->
+    <link href="../static/css/animate.min.css" rel="stylesheet"/>
+
+    <!--  Light Bootstrap Table core CSS    -->
+    <link href="../static/css/light-bootstrap-dashboard.css" rel="stylesheet"/>
+
+
+    <!--  CSS for Demo Purpose, don't include it in your project     -->
+    <link href="../static/css/demo.css" rel="stylesheet" />
+
+
+    <!--     Fonts and icons     -->
+    <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href='http://fonts.googleapis.com/css?family=Roboto:400,700,300' rel='stylesheet' type='text/css'>
+    <link href="../static/css/pe-icon-7-stroke.css" rel="stylesheet" />
+
+     <!--   Core JS Files   -->
+    <script src="../static/js/jquery-1.10.2.js" type="text/javascript"></script>
+	<script src="../static/js/bootstrap.min.js" type="text/javascript"></script>
+
+    <!--  jQuery
+    <script src="https://code.jquery.com/jquery-1.12.2.min.js" integrity="sha256-lZFHibXzMHo3GGeehn1hudTAP3Sc0uKXBXAzHX1sjtk=" crossorigin="anonymous"></script>
+    <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>-->
+
+	<!--  Checkbox, Radio & Switch Plugins -->
+	<script src="../static/js/bootstrap-checkbox-radio-switch.js"></script>
+
+	<!--  Charts Plugin -->
+	<script src="../static/js/chartist.min.js"></script>
+
+    <!--  Notifications Plugin    -->
+    <script src="../static/js/bootstrap-notify.js"></script>
+
+    <!--  Google Maps Plugin
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>-->
+
+    <!-- Light Bootstrap Table Core javascript and methods for Demo purpose -->
+	<script src="../static/js/light-bootstrap-dashboard.js"></script>
+
+	<!-- Light Bootstrap Table DEMO methods, don't include it in your project! -->
+	<script src="../static/js/demo.js"></script>
+
+    <!-- Include Date Range Picker
+    <script type="text/javascript" src="//cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.js"></script>
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.css" />-->
+
+    <!--     <!-- Include Date Range Picker and Moment js -->
+    <script type="text/javascript" src="//cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+    <script type="text/javascript" src="//cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.js"></script>
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.css" />
+
+        <!-- Leaflet.js (Maps library) -->
+
+ <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.css" />
+ <script src="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.js"></script>
+
+</head>
+<body>
+
+<div class="wrapper">
+    <div class="sidebar" data-color="blue" data-image="../static/img/sidebar-1.jpg">
+
+    <!--
+
+        Tip 1: you can change the color of the sidebar using: data-color="blue | azure | green | orange | red | purple"
+        Tip 2: you can also add an image using data-image tag
+
+    -->
+
+    	<div class="sidebar-wrapper">
+            <div class="logo">
+                <a href="http://www.creative-tim.com" class="simple-text">
+                    Therapio
+                </a>
+            </div>
+
+            <ul class="nav">
+                <li class="active">
+                    <a href="{{ url_for('dashboard', userid=userid) }}">
+                        <i class="pe-7s-user"></i>
+                        <p>Check Patient</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="{{ url_for('predictions', userid=userid) }}">
+                        <i class="pe-7s-note2"></i>
+                        <p>Predictions</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="notifications.html">
+                        <i class="pe-7s-bell"></i>
+                        <p>Notifications</p>
+                    </a>
+                </li>
+               {# <li>
+                    <a href="user.html">
+                        <i class="pe-7s-user"></i>
+                        <p>User Profile</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="typography.html">
+                        <i class="pe-7s-news-paper"></i>
+                        <p>Typography</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="icons.html">
+                        <i class="pe-7s-science"></i>
+                        <p>Icons</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="maps.html">
+                        <i class="pe-7s-map-marker"></i>
+                        <p>Maps</p>
+                    </a>
+                </li>#}
+				{#<li class="active-pro">
+                    <a href="upgrade.html">
+                        <i class="pe-7s-rocket"></i>
+                        <p>Upgrade to PRO</p>
+                    </a>
+                </li>#}
+            </ul>
+    	</div>
+    </div>
+
+    <div class="main-panel">
+        <nav class="navbar navbar-default navbar-fixed">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navigation-example-2">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a href="{{ url_for('dashboard', userid=userid) }}" class="navbar-brand">Refresh</a>
+                </div>
+
+                <div class="collapse navbar-collapse">
+                    <ul class="nav navbar-nav navbar-left">
+                        <!--<li>
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                <i class="fa fa-dashboard"></i>
+                            </a>
+                        </li>-->
+                        <li class="dropdown">
+                              <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                    <i class="fa fa-globe"></i>
+                                    <b class="caret"></b>
+                                    <!--<span class="notification">5</span>-->
+                              </a>
+                              <ul class="dropdown-menu">
+                                <li><a href="#">Notification 1</a></li>
+                                <li><a href="#">Notification 2</a></li>
+                                <li><a href="#">Notification 3</a></li>
+                                <li><a href="#">Notification 4</a></li>
+                                <li><a href="#">Another notification</a></li>
+                              </ul>
+                        </li>
+                        <!--<li>
+                           <a href="">
+                                <i class="fa fa-search"></i>
+                            </a>
+                        </li>-->
+                    </ul>
+
+                    <ul class="nav navbar-nav navbar-right">
+                        <li>
+                           <a href="">
+                               Account
+                            </a>
+                        </li>
+                        <li class="dropdown">
+                              <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                    Options
+                                    <b class="caret"></b>
+                              </a>
+                              <ul class="dropdown-menu">
+                               {#<li><a href="#">Another action</a></li>
+                                <li><a href="#">Something</a></li>
+                                <li><a href="#">Another action</a></li>#}
+                                <li><a href="{{ url_for('main') }}">Home</a></li>
+                                <li class="divider"></li>
+                                  <li><a href="{{ url_for('logout') }}">Logout</a></li>
+                              </ul>
+                        </li>
+
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <div class="content">
+            <div class="container-fluid">
+
+                <div class="row">
+                    <div class="col-md-8">
+
+                        <!-- <p>
+                        <a class="btn btn-primary" data-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+                        Link with href
+                        </a>
+                        <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+                        View Patient information
+                        </button>
+                        </p>
+
+                        <div class="collapse" id="collapseExample">
+                            -->
+                        <div class="card card-block">
+                            <div class="card card-user">
+                            <div class="image">
+                                <img src="../static/drawable/dep.jpg" alt="..."/>
+                            </div>
+                            <div class="content">
+                                <div class="author">
+                                     <a href="#">
+                                    <img class="avatar border-gray" src="../static/drawable/myAvatar.png" alt="..."/>
+
+                                      <h4 class="title">{{ usersDict[0]['name'] }}<br />
+                                         <small>{{ usersDict[0]['age'] }}</small>
+                                      </h4>
+                                    </a>
+                                </div>
+                                <p class="description text-center"> {{ usersDict[0]['email'] }} </p>
+                            </div>
+                            <!--<hr>
+                            <div class="text-center">
+                                <button href="#" class="btn btn-simple"><i class="fa fa-facebook-square"></i></button>
+                                <button href="#" class="btn btn-simple"><i class="fa fa-twitter"></i></button>
+                                <button href="#" class="btn btn-simple"><i class="fa fa-google-plus-square"></i></button>
+                            </div>-->
+                        </div>
+                        </div>
+                        </div>
+                    <div class="col-md-4">
+                        <div class="card">
+                            <div class="header">
+                                <h4 class="title">Chose date</h4>
+                                <p class="category">Select date</p>
+                            </div>
+                            <div class="content">
+                                <form class="form-signin" method="post" action="">
+                                    {{ form.hidden_tag() }}
+                                    {{ form.dt(id="dtpickstart", class="form-control") }}
+                                    <br>
+                                    <button class="btn btn-primary" type="submit">Check</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    </div>
+
+                   <!-- <div class="col-md-4">
+                        <div class="card">
+                            <div class="header">
+                                <h4 class="title">Chose Patient</h4>
+                                <p class="category">Select your patient from list</p>
+                            </div>
+                            <div class="content">
+                            <form class="form-signin" action="">
+                                <select class="form-control" id="s"></select>
+                            </form>
+                            <br>
+                            <p><a class="btn btn-lg btn-success" role="button" id="btn_dash">Dashboard</a></p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="card">
+                            <div class="header">
+                                <h4 class="title">Chose date</h4>
+                                <p class="category">Select date</p>
+                            </div>
+                            <div class="content">
+                                <input type="text" name="daterange" class="form-control" value="01/01/2015 - 01/31/2015" />
+                                <br>
+                            <p><a class="btn btn-lg btn-success" role="button" id="btn_dash">Dashboard</a></p>
+                            </div>
+                        </div>
+                    </div>-->
+
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="col-md-12">
+                        <div class="card">
+                            <div class="header">
+                                <h4 class="title">Location</h4>
+                                <p class="category">Recent places</p>
+                            </div>
+                            <div class="content">
+
+                                <div id="map" style="height: 250px;"></div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    </div>
+                </div>
+
+
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="card">
+
+                            <div class="header">
+                                <h4 class="title">Activity</h4>
+                                <p class="category">An overview about how active the patient is</p>
+                            </div>
+                            <div class="content">
+
+
+                                <div id="containerActivity"></div>
+
+
+                                <div class="footer">
+                                    <hr>
+                                    <div class="stats">
+                                        <i class="fa fa-check"></i> Data information certified
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <!--<div class="col-md-8">
+                        <div class="card ">
+
+                            <div class="header">
+                                <h4 class="title">Loudness</h4>
+                                <p class="category">The average of features per date</p>
+                            </div>
+
+                            <div class="content">
+                                <div id="containerPosts"></div>
+
+                                <div class="footer">
+                                    <hr>
+                                    <div class="stats">
+                                        <i class="fa fa-check"></i> Data information certified
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>-->
+
+                       <div class="col-md-8">
+                        <div class="card ">
+
+                            <div class="header">
+                                <h4 class="title">Loudness and Number of Pauses per phone call</h4>
+                                <p class="category">loudness and number of Pauses</p>
+                            </div>
+
+                            <div class="content">
+                                <div id="containerWithNegative"></div>
+
+                                <div class="footer">
+                                    <hr>
+                                    <div class="stats">
+                                        <i class="fa fa-check"></i> Data information certified
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+
+                </div>
+
+
+                <div class="row">
+
+                    <div class="col-md-6">
+                        <div class="card">
+                            <div class="header">
+                                <h4 class="title">Audio features</h4>
+                                <p class="category">features characterizing the phone call of the patient</p>
+                            </div>
+                            <div class="content">
+                            <div id="containerLineWithLabelAudio">
+                                <div class="footer">
+                                    <hr>
+                                    <div class="stats">
+                                        <i class="fa fa-check"></i> Data information certified
+                                    </div>
+                                </div>
+                            </div>
+                                </div>
+
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="card">
+                            <div class="header">
+                                <h4 class="title">Facebook posts</h4>
+                                <p class="category">Number of facebook posts made by a user during the selected time</p>
+                            </div>
+                            <div class="content">
+                            <div id="containerLineWithLabelFacebook">
+                                <div class="footer">
+                                    <hr>
+                                    <div class="stats">
+                                        <i class="fa fa-check"></i> Data information certified
+                                    </div>
+                                </div>
+                            </div>
+                                </div>
+
+                        </div>
+                    </div>
+
+{#                    <div class="col-md-6">
+                        <div class="card">
+
+                            <div class="header">
+                                <h4 class="title">Facebook posts</h4>
+                                <p class="category">Number of facebook posts made by a user during the selected time</p>
+                            </div>
+                            <div class="content">
+
+
+                                <div id="containerColumn"></div>
+
+
+                                <div class="footer">
+                                    <hr>
+                                    <div class="stats">
+                                        <i class="fa fa-check"></i> Data information certified
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>#}
+                </div>
+
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="card">
+
+                            <div class="header">
+                                <h4 class="title">BDI Score</h4>
+                                <p class="category">Beck Depression Inventory Scores</p>
+                            </div>
+                            <div class="content">
+
+
+                                <div id="containerBDI"></div>
+
+
+                                <div class="footer">
+                                    <hr>
+                                    <div class="stats">
+                                        <i class="fa fa-check"></i> Data information certified
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                  <!--  <div class="col-md-7">
+                        <div class="card ">
+
+                            <div class="header">
+                                <h4 class="title">Another Title</h4>
+                                <p class="category">title desc</p>
+                            </div>
+
+                            <div class="content">
+                                <div id="containerBoxPlot"></div>
+
+                                <div class="footer">
+                                    <hr>
+                                    <div class="stats">
+                                        <i class="fa fa-check"></i> Data information certified
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>-->
+
+                </div>
+
+
+
+
+                <div class="row">
+
+
+                </div>
+            </div>
+        </div>
+
+
+        <footer class="footer">
+            <div class="container-fluid">
+                <!--<nav class="pull-left">
+                    <ul>
+                        <li>
+                            <a href="#">
+                                Home
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                Company
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                Portfolio
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                               Blog
+                            </a>
+                        </li>
+                    </ul>
+                </nav>-->
+                <p class="copyright pull-right">
+                    &copy; 2016 <a href="http://www.creative-tim.com">Theralytics</a>, made with love for a better health
+                </p>
+            </div>
+        </footer>
+
+    </div>
+</div>
+
+
+    <!-- Bootstrap Date-Picker Plugin
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css"/>-->
+
+
+    <!-- Highcharts -->
+	<script src="http://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.highcharts.com/highcharts-more.js"></script>
+    <script src="http://code.highcharts.com/modules/exporting.js"></script>
+    <script src="https://code.highcharts.com/modules/heatmap.js"></script>
+    <script src="https://code.highcharts.com/modules/solid-gauge.js"></script>
+
+
+
+    <!-- Location-->
+
+<script type="text/javascript">
+  // The first parameter are the coordinates of the center of the map
+  // The second parameter is the zoom level
+  var map = L.map('map').setView([34.7478, 10.7662], 11);
+
+  // {s}, {z}, {x} and {y} are placeholders for map tiles
+  // {x} and {y} are the x/y of where you are on the map
+  // {z} is the zoom level
+  // {s} is the subdomain of cartodb
+    var layer = L.tileLayer('http://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png', {
+    attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, &copy; <a href="http://cartodb.com/attributions">CartoDB</a>'
+  });
+
+    // Now add the layer onto the map
+    map.addLayer(layer);
+
+    // It even opens up a popup when you click it!
+
+  {% for location  in LOCs_dict %}
+      L.marker([  {{ location['lati'] }} , {{ location['longi'] }}  ]).addTo(map)
+        .bindPopup("<strong> {{ location['place'] }}</strong>").openPopup();
+  {% endfor %}
+
+
+
+</script>
+
+
+    <!-- Column chart BDI-->
+    <script type="text/javascript">
+    $(document).ready(function() {
+        chart = new Highcharts.Chart({
+            chart: {
+                renderTo: 'containerBDI',
+                type: 'column'
+            },
+            title: {
+                text: 'Score of BDI per day'
+            },
+            xAxis: {
+                categories:
+                 [
+                    {% for bdi  in BDIs_dict %}
+                        '{{ bdi['createdat'] }}',
+                    {% endfor %}
+                ],
+                title: {
+                    text: null
+                }
+            },
+            yAxis: {
+                min: 0,
+                title: {
+                    text: 'Score',
+                    align: 'high'
+                },
+                labels: {
+                    overflow: 'justify'
+                }
+            },
+            tooltip: {
+                formatter: function() {
+                    return ''+
+                        this.series.name +': '+ this.y +' point';
+                }
+            },
+            plotOptions: {
+                bar: {
+                    dataLabels: {
+                        enabled: true
+                    }
+                }
+            },
+            legend: {
+                layout: 'vertical',
+                align: 'right',
+                verticalAlign: 'top',
+                x: -100,
+                y: 100,
+                floating: true,
+                borderWidth: 1,
+                backgroundColor: '#FFFFFF',
+                shadow: true
+            },
+            credits: {
+                enabled: false
+            },
+            series: [{
+                name: 'Score',
+                data: [
+                 {% for bdi  in BDIs_dict %}
+                    {{ bdi['score'] }},
+                {% endfor %}]
+            }]
+        });
+    });
+
+	</script>
+
+
+
+    <!-- Line with label Audio Ftrs-->
+
+    <script type="text/javascript">
+        $(function () {
+    $('#containerLineWithLabelAudio').highcharts({
+        chart: {
+            type: 'line'
+        },
+        title: {
+            text: 'Average features of phone calls per day'
+        },
+        subtitle: {
+            text: 'AVG Loudness, AVG Max Amplitude'
+        },
+        xAxis: {
+            categories: [
+
+                {% for dateC  in calls_ftr_dict %}
+                    '{{ dateC['createdat'] }}',
+                {% endfor %}]
+        },
+        yAxis: {
+            title: {
+                text: 'Features value'
+            }
+        },
+        plotOptions: {
+            line: {
+                dataLabels: {
+                    enabled: true
+                },
+                enableMouseTracking: true
+            }
+        },
+        series: [{
+{#            name: '{{ usersDict[0]['name'] }}',#}
+            name : 'AVG Loudness',
+            data: [
+                {% for callFtr  in calls_ftr_dict %}
+                    {{ callFtr['avgLoudness'] }},
+                {% endfor %}
+            ]
+        },
+                {
+            name: 'AVG Amplitude',
+            data: [
+                {% for callFtr  in calls_ftr_dict %}
+                    {{ callFtr['avgMAXA'] }},
+                {% endfor %}
+            ]
+        }
+        ]
+    });
+});
+</script>
+
+    <!-- Line with label Facebook posts-->
+
+    <script type="text/javascript">
+        $(function () {
+    $('#containerLineWithLabelFacebook').highcharts({
+        chart: {
+            type: 'line'
+        },
+        title: {
+            text: 'Social engagement and self expression'
+        },
+        subtitle: {
+            text: 'Number of posts per day'
+        },
+        xAxis: {
+            categories: [
+
+                {% for fb  in FBs_dict_week %}
+                    '{{ fb['week_beginning'] }}',
+                {% endfor %}]
+        },
+        yAxis: {
+            title: {
+                text: 'Features value'
+            }
+        },
+        plotOptions: {
+            line: {
+                dataLabels: {
+                    enabled: true
+                },
+                enableMouseTracking: true
+            }
+        },
+        series: [{
+{#            name: '{{ usersDict[0]['name'] }}',#}
+            name : 'Number of posts',
+            data: [
+                {% for fb  in FBs_dict_week %}
+                    {{ fb['totalPosts'] }},
+                {% endfor %}
+            ]
+        }]
+    });
+});
+</script>
+
+
+
+
+    <!-- Spider chart-->
+    <script type="text/javascript">
+        $(function () {
+
+    $('#containerSpiderChart').highcharts({
+
+        chart: {
+            polar: true,
+            type: 'line'
+        },
+
+        title: {
+            text: 'All Features',
+            x: -80
+        },
+
+        pane: {
+            size: '80%'
+        },
+
+        xAxis: {
+            categories: ['Loudness', 'Max Amplitude', 'Max DBFS', 'Max Possible Amplitude'],
+            tickmarkPlacement: 'on',
+            lineWidth: 0
+        },
+
+        yAxis: {
+            gridLineInterpolation: 'polygon',
+            lineWidth: 0,
+            min: 0
+        },
+
+        tooltip: {
+            shared: true,
+            pointFormat: '<span style="color:{series.color}"> {series.name}: <b> Hz {point.y:,.0f} </b><br/>'
+        },
+
+        legend: {
+            align: 'right',
+            verticalAlign: 'top',
+            y: 70,
+            layout: 'vertical'
+        },
+
+        series: [{
+            name: 'Features value',
+
+            data: [
+
+                {% for callFtr  in calls_ftr_dict %}
+                    {{ callFtr['avgLoudness'] }},
+                    {{ callFtr['avgMAXA'] }},
+                    {{ callFtr['avgMaxPA'] }},
+                    {{ callFtr['avgMaxPA'] }},
+                {% endfor %}
+
+            ],
+
+            pointPlacement: 'on'
+        }]
+
+    });
+});
+    </script>
+
+    <!-- Area chart call ftr-->
+    <script type="text/javascript">
+        $(function () {
+    $('#containerPosts').highcharts({
+        chart: {
+            type: 'areaspline'
+        },
+        title: {
+            text: 'Average loudness during one week'
+        },
+{#        legend: {
+            layout: 'vertical',
+            align: 'left',
+            verticalAlign: 'top',
+            x: 150,
+            y: 100,
+            floating: true,
+            borderWidth: 1,
+            backgroundColor: (Highcharts.theme && Highcharts.theme.legendBackgroundColor) || '#FFFFFF'
+        },#}
+        xAxis: {
+            categories: [
+
+                {% for dateC  in calls_ftr_dict_All %}
+                    '{{ dateC['createdat'] }}',
+                {% endfor %}
+
+            ],
+            plotBands: [{ // visualize the weekend
+                from: 4.5,
+                to: 6.5,
+                color: 'rgba(68, 170, 213, .2)'
+            }]
+        },
+        yAxis: {
+            title: {
+                text: 'loudness level'
+            }
+        },
+        tooltip: {
+            shared: true,
+            valueSuffix: ' sth'
+        },
+        credits: {
+            enabled: false
+        },
+        plotOptions: {
+            areaspline: {
+                fillOpacity: 0.5
+            }
+        },
+        series: [{
+{#            name: '{{ usersDict[0]['name'] }}',#}
+            name : 'Loudness',
+            data: [
+                {% for callFtr  in calls_ftr_dict_All %}
+                    {{ callFtr['loudness'] }},
+                {% endfor %}
+            ]
+        },
+        {
+            name: 'Max Amplitude',
+            data: [
+                {% for callFtr  in calls_ftr_dict_All %}
+                    {{ callFtr['maxA'] }},
+                {% endfor %}
+            ]
+        },
+        {
+            name: 'Max possible Amplitude',
+            data: [
+                {% for callFtr  in calls_ftr_dict_All %}
+                    {{ callFtr['maxPA'] }},
+                {% endfor %}
+            ]
+        }
+        ]
+    });
+});
+    </script>
+
+    <!-- Area with negative Call ftr -->
+
+    <script type="text/javascript">
+$(function () {
+    $('#containerWithNegative').highcharts({
+        chart: {
+            type: 'area'
+        },
+        title: {
+            text: 'Number of pauses per Phone call'
+        },
+        xAxis: {
+            categories: [
+
+                    {% for dateC  in calls_ftr_dict %}
+                    '{{ dateC['createdat'] }}',
+                    {% endfor %}
+            ]
+        },
+        credits: {
+            enabled: false
+        },
+        series: [{
+{#            name: '{{ usersDict[0]['name'] }}',#}
+            name : 'Number of Pauses',
+            data: [
+                {% for callFtr  in calls_ftr_dict_All %}
+                    {{ callFtr['npause'] }},
+                {% endfor %}
+            ]
+        }]
+    });
+});
+</script>
+
+    <!-- Activity-->
+    <script type="text/javascript">
+
+        $(function () {
+
+    // Uncomment to style it like Apple Watch
+    /*
+    if (!Highcharts.theme) {
+        Highcharts.setOptions({
+            chart: {
+                backgroundColor: 'black'
+            },
+            colors: ['#F62366', '#9DFF02', '#0CCDD6'],
+            title: {
+                style: {
+                    color: 'silver'
+                }
+            },
+            tooltip: {
+                style: {
+                    color: 'silver'
+                }
+            }
+        });
+    }
+    // */
+
+    Highcharts.chart('containerActivity', {
+
+        chart: {
+            type: 'solidgauge',
+            marginTop: 50
+        },
+
+        title: {
+            text: 'Activity',
+            style: {
+                fontSize: '24px'
+            }
+        },
+
+        tooltip: {
+            borderWidth: 0,
+            backgroundColor: 'none',
+            shadow: false,
+            style: {
+                fontSize: '16px'
+            },
+            pointFormat: '{series.name}<br><span style="font-size:2em; color: {point.color}; font-weight: bold">{point.y}%</span>',
+            positioner: function (labelWidth, labelHeight) {
+                return {
+                    x: 200 - labelWidth / 2,
+                    y: 180
+                };
+            }
+        },
+
+        pane: {
+            startAngle: 0,
+            endAngle: 360,
+            background: [{ // Track for Active
+                outerRadius: '112%',
+                innerRadius: '88%',
+                backgroundColor: Highcharts.Color(Highcharts.getOptions().colors[0]).setOpacity(0.3).get(),
+                borderWidth: 0
+            }, { // Track for not Active
+                outerRadius: '87%',
+                innerRadius: '63%',
+                backgroundColor: Highcharts.Color(Highcharts.getOptions().colors[1]).setOpacity(0.3).get(),
+                borderWidth: 0
+            }]
+        },
+
+        yAxis: {
+            min: 0,
+            max: 100,
+            lineWidth: 0,
+            tickPositions: []
+        },
+
+        plotOptions: {
+            solidgauge: {
+                borderWidth: '34px',
+                dataLabels: {
+                    enabled: false
+                },
+                linecap: 'round',
+                stickyTracking: false
+            }
+        },
+
+        series: [{
+            name: 'Active',
+            borderColor: Highcharts.getOptions().colors[0],
+            data: [{
+                color: Highcharts.getOptions().colors[0],
+                radius: '100%',
+                innerRadius: '100%',
+                y: 80
+            }]
+        }, {
+            name: 'Not Active',
+            borderColor: Highcharts.getOptions().colors[1],
+            data: [{
+                color: Highcharts.getOptions().colors[1],
+                radius: '75%',
+                innerRadius: '75%',
+                y: 65
+            }]
+        }]
+    },
+
+    /**
+     * In the chart load callback, add icons on top of the circular shapes
+     */
+    function callback() {
+
+        // Move icon
+        this.renderer.path(['M', -8, 0, 'L', 8, 0, 'M', 0, -8, 'L', 8, 0, 0, 8])
+            .attr({
+                'stroke': '#303030',
+                'stroke-linecap': 'round',
+                'stroke-linejoin': 'round',
+                'stroke-width': 2,
+                'zIndex': 10
+            })
+            .translate(190, 26)
+            .add(this.series[2].group);
+
+        // Exercise icon
+        this.renderer.path(['M', -8, 0, 'L', 8, 0, 'M', 0, -8, 'L', 8, 0, 0, 8, 'M', 8, -8, 'L', 16, 0, 8, 8])
+            .attr({
+                'stroke': '#303030',
+                'stroke-linecap': 'round',
+                'stroke-linejoin': 'round',
+                'stroke-width': 2,
+                'zIndex': 10
+            })
+            .translate(190, 61)
+            .add(this.series[2].group);
+
+    });
+
+
+});
+
+
+    </script>
+
+
+    <!-- Stacked line chart-->
+    <script type="text/javascript">
+    $(function () {
+    $('#containerStackedData').highcharts({
+        chart: {
+            type: 'area'
+        },
+        title: {
+            text: 'Historic and Estimated Worldwide Population Growth by Region'
+        },
+        subtitle: {
+            text: 'Source: Wikipedia.org'
+        },
+        xAxis: {
+            categories: ['1750', '1800', '1850', '1900', '1950', '1999', '2050'],
+            tickmarkPlacement: 'on',
+            title: {
+                enabled: false
+            }
+        },
+        yAxis: {
+            title: {
+                text: 'Billions'
+            },
+            labels: {
+                formatter: function () {
+                    return this.value / 1000;
+                }
+            }
+        },
+        tooltip: {
+            shared: true,
+            valueSuffix: ' millions'
+        },
+        plotOptions: {
+            area: {
+                stacking: 'normal',
+                lineColor: '#666666',
+                lineWidth: 1,
+                marker: {
+                    lineWidth: 1,
+                    lineColor: '#666666'
+                }
+            }
+        },
+        series: [{
+            name: 'Asia',
+            data: [502, 635, 809, 947, 1402, 3634, 5268]
+        }, {
+            name: 'Africa',
+            data: [106, 107, 111, 133, 221, 767, 1766]
+        }, {
+            name: 'Europe',
+            data: [163, 203, 276, 408, 547, 729, 628]
+        }, {
+            name: 'America',
+            data: [18, 31, 54, 156, 339, 818, 1201]
+        }, {
+            name: 'Oceania',
+            data: [2, 2, 2, 6, 13, 30, 46]
+        }]
+    });
+});
+
+</script>
+
+
+    <!-- Column chart Facebook-->
+    <script type="text/javascript">
+    $(document).ready(function() {
+        chart = new Highcharts.Chart({
+            chart: {
+                renderTo: 'containerColumn',
+                type: 'column'
+            },
+            title: {
+                text: 'Number of posts per day'
+            },
+            xAxis: {
+                categories:
+                 [
+                    {% for Fb  in FBs_dict %}
+                        '{{ Fb['createdat'] }}',
+                    {% endfor %}
+                ],
+                title: {
+                    text: null
+                }
+            },
+            yAxis: {
+                min: 0,
+                title: {
+                    text: 'Number of Posts',
+                    align: 'high'
+                },
+                labels: {
+                    overflow: 'justify'
+                }
+            },
+            tooltip: {
+                formatter: function() {
+                    return ''+
+                        this.series.name +': '+ this.y +' posts';
+                }
+            },
+            plotOptions: {
+                bar: {
+                    dataLabels: {
+                        enabled: true
+                    }
+                }
+            },
+            legend: {
+                layout: 'vertical',
+                align: 'right',
+                verticalAlign: 'top',
+                x: -100,
+                y: 100,
+                floating: true,
+                borderWidth: 1,
+                backgroundColor: '#FFFFFF',
+                shadow: true
+            },
+            credits: {
+                enabled: false
+            },
+            series: [{
+                name: 'Number of posts',
+                data: [
+                 {% for Fb  in FBs_dict %}
+                    {{ Fb['npost'] }},
+                {% endfor %}]
+            }]
+        });
+    });
+
+	</script>
+
+    <!-- Heat Map-->
+    <script type="text/javascript">
+        $(function () {
+
+    $('#containerHeatMap').highcharts({
+
+        chart: {
+            type: 'heatmap',
+            marginTop: 40,
+            marginBottom: 80,
+            plotBorderWidth: 1
+        },
+
+
+        title: {
+            text: 'number of posts per weekday'
+        },
+
+        xAxis: {
+            categories: ['Alexander', 'Marie', 'Maximilian', 'Sophia', 'Lukas', 'Maria', 'Leon', 'Anna', 'Tim', 'Laura']
+        },
+
+        yAxis: {
+            categories: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'],
+            title: null
+        },
+
+        colorAxis: {
+            min: 0,
+            minColor: '#FFFFFF',
+            maxColor: Highcharts.getOptions().colors[0]
+        },
+
+        legend: {
+            align: 'right',
+            layout: 'vertical',
+            margin: 0,
+            verticalAlign: 'top',
+            y: 25,
+            symbolHeight: 280
+        },
+
+        tooltip: {
+            formatter: function () {
+                return '<b>' + this.series.xAxis.categories[this.point.x] + '</b> posted <br><b>' +
+                    this.point.value + '</b> posts on Facebook on <br><b>' + this.series.yAxis.categories[this.point.y] + '</b>';
+            }
+        },
+
+        series: [{
+            name: 'Sales per employee',
+            borderWidth: 1,
+            data: [[0, 0, 10], [0, 1, 19], [0, 2, 8], [0, 3, 24], [0, 4, 67], [1, 0, 92], [1, 1, 58], [1, 2, 78], [1, 3, 117], [1, 4, 48], [2, 0, 35], [2, 1, 15], [2, 2, 123], [2, 3, 64], [2, 4, 52], [3, 0, 72], [3, 1, 132], [3, 2, 114], [3, 3, 19], [3, 4, 16], [4, 0, 38], [4, 1, 5], [4, 2, 8], [4, 3, 117], [4, 4, 115], [5, 0, 88], [5, 1, 32], [5, 2, 12], [5, 3, 6], [5, 4, 120], [6, 0, 13], [6, 1, 44], [6, 2, 88], [6, 3, 98], [6, 4, 96], [7, 0, 31], [7, 1, 1], [7, 2, 82], [7, 3, 32], [7, 4, 30], [8, 0, 85], [8, 1, 97], [8, 2, 123], [8, 3, 64], [8, 4, 84], [9, 0, 47], [9, 1, 114], [9, 2, 31], [9, 3, 48], [9, 4, 91]],
+            dataLabels: {
+                enabled: true,
+                color: '#000000'
+            }
+        }]
+
+    });
+});
+
+
+    </script>
+
+
+    <!-- Date pickers get data-->
+    <script>
+
+	$(function() {
+		$( ".dtpickstart" ).datepicker();
+	});
+	</script>
+
+    <script type="text/javascript">
+    $(function() {
+        $('input[name="daterange"]').daterangepicker();
+    });
+    </script>
+
+    <!-- Welcome -->
+	<script type="text/javascript">
+    	$(document).ready(function(){
+
+        	demo.initChartist();
+
+        	$.notify({
+            	icon: 'pe-7s-gift',
+            	message: "Welcome Doctor {{ session_user_name }}"
+
+            },{
+                type: 'info',
+                timer: 4000
+            });
+
+    	});
+	</script>
+
+</body>
+</html>
